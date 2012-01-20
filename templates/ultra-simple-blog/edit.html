@@ -1,0 +1,15 @@
+{% extends "ultra-simple-blog/base.html" %}
+
+{% block header %}
+	<p>Edit Post</p>
+{% endblock %}
+
+{% block content %}
+<form action="" method="post">{% csrf_token %}
+	<p><label for="title">Title:</label>
+		{{ form.title }}</p>
+		{{ form.body }}</p>
+	<a href={% url ultra-simple-blog.views.show post.id %}>Cancel</a>
+	<a href="#" onclick="parentNode.submit()">Update</a>
+</form>
+{% endblock %}

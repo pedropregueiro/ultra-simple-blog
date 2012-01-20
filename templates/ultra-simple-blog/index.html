@@ -1,0 +1,21 @@
+{% extends "ultra-simple-blog/base.html" %}
+
+{% block header %}
+	<p>Ultra Simple Blog</p>
+{% endblock %}
+
+{% block content %}
+<div id="new-post"><a href={% url ultra-simple-blog.views.new %}><b>New post</b></a></div>
+{% if post_list %}
+    {% for post in post_list %}
+	<div id="post">
+		<p id="index-title"><a href="/ultra-simple-blog/{{ post.id }}/">{{ post.title }}</a><p>
+		<p id="index-date_published">{{ post.date_published }}</p>
+		<p id="index-body">{{ post.body }}</p>
+	</div>
+    {% endfor %}
+{% else %}
+    <p>No posts in the blog yet!</p>
+{% endif %}
+
+{% endblock %}
